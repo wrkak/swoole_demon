@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:image/ico;base64,aWNv">
+</head>
+<body>
+<h1>swoole-websocket-test</h1>
+</body>
+<script type="text/javascript">
+
+	var wsUrl = "ws://192.168.10.10:9501";
+
+	var websocket = new WebSocket(wsUrl);
+
+	//实例对象的onopen属性
+	websocket.onopen = function(evt){
+		console.log('connection open!');
+		websocket.send('hello');
+	}
+
+	//实例化 onmessage
+	websocket.onmessage = function(evt){
+		console.log('server return data :'+ evt.data);
+	}
+
+	//onclose
+	websocket.onclose = function(evt){
+		console.log('colse');
+	}
+
+	//onerror
+	websocket.onerror = function(evt){
+		console.log('error: '+evt.data);
+	}
+
+
+
+
+</script>
+</html>

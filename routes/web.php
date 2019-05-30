@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', 'TestController@index')->name('test.index');
+
+Route::post('/test/image', 'TestController@imageUpload')->name('test.image');
+Route::post('/test/live', 'TestController@adminLive')->name('test.admin.live');
+Route::post('/test/chat', 'TestController@chat')->name('test.chat');
